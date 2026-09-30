@@ -664,17 +664,12 @@ footer strong{
     </p>
 
     <div class="video-box">
-      <video
-        id="videoJR"
-        controls
-        playsinline
-        preload="metadata">
-        Tu navegador no puede reproducir este video.
-      </video>
+      <video controls playsinline preload="metadata">
+  <source src="F2658B05-2910-4734-8690-3EC98CB04408.mp4" type="video/mp4">
+  Tu navegador no puede reproducir este video.
+</video>
 
-      <div id="videoStatus" class="video-message">
-        Cargando video…
-      </div>
+      
     </div>
 
   </div>
@@ -758,49 +753,8 @@ footer strong{
 </a>
 
 
-<script>
-/*
-  Busca automáticamente en el repositorio el archivo
-  que empieza por F2658B05-2910-4734-8690
-  y lo coloca en el reproductor.
-*/
 
-const owner = "jrcintasyembalajes";
-const repo = "jr-cintas-y-embalajes";
-const videoPrefix = "F2658B05-2910-4734-8690-3EC98CB04408.mp4";
 
-const video = document.getElementById("videoJR");
-const status = document.getElementById("videoStatus");
-
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("No se pudo consultar el repositorio");
-    }
-    return response.json();
-  })
-  .then(files => {
-
-    const videoFile = files.find(file =>
-      file.name.toUpperCase().startsWith(videoPrefix.toUpperCase())
-    );
-
-    if (!videoFile) {
-      throw new Error("Video no encontrado");
-    }
-
-    video.src = videoFile.download_url;
-    video.load();
-
-    status.style.display = "none";
-  })
-  .catch(error => {
-    console.log(error);
-
-    status.innerHTML =
-      "El video está siendo preparado. También puedes solicitar información por WhatsApp.";
-  });
-</script>
 
 </body>
 </html>
