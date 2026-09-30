@@ -1,760 +1,840 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="Cintas y Embalajes JR en Bogotá. Cintas, stretch, vinipel, bolsas y soluciones de embalaje. Cotiza por WhatsApp.">
+  <title>Cintas y Embalajes JR | Bogotá</title>
 
-<title>JR Cintas y Embalajes | Bogotá</title>
+  <style>
+    :root {
+      --amarillo: #ffd32a;
+      --negro: #151515;
+      --fondo: #f6f5f1;
+      --gris: #646464;
+    }
 
-<meta name="description" content="Cintas y Embalajes JR. Película stretch, vinipel, cintas de empaque, cintas especiales, bolsas y soluciones de embalaje en Bogotá.">
+    * { box-sizing: border-box; }
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--negro);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f5f3;
-  color:#17191c;
-  line-height:1.5;
-}
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { max-width: 100%; }
+    [hidden] { display: none !important; }
 
-a{
-  text-decoration:none;
-}
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #a56a00;
+      outline-offset: 5px;
+    }
 
-img{
-  display:block;
-  width:100%;
-}
+    .contenedor {
+      width: min(1180px, 91%);
+      margin: auto;
+    }
 
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#15181c;
-  border-bottom:3px solid #ffc928;
-}
+    .aviso {
+      padding: 8px 15px;
+      text-align: center;
+      background: var(--amarillo);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  min-height:72px;
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--negro);
+      color: white;
+      border-bottom: 1px solid #333;
+    }
 
-.logo{
-  color:#fff;
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
+    nav {
+      min-height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-.logo span{
-  color:#ffc928;
-  font-size:31px;
-  margin-right:7px;
-}
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      line-height: 1.2;
+      font-size: 14px;
+    }
 
-nav{
-  display:flex;
-  gap:18px;
-}
+    .logo {
+      width: 51px;
+      height: 51px;
+      display: grid;
+      place-items: center;
+      background: var(--amarillo);
+      color: var(--negro);
+      border-radius: 12px;
+      font-size: 27px;
+      letter-spacing: -2px;
+    }
 
-nav a{
-  color:#fff;
-  font-size:14px;
-  font-weight:700;
-}
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-nav a:hover{
-  color:#ffc928;
-}
+    .boton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      background: var(--amarillo);
+      color: var(--negro);
+      border-radius: 9px;
+      border: 0;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s;
+    }
 
-.hero{
-  background:
-    linear-gradient(120deg,rgba(15,17,20,.96),rgba(15,17,20,.82));
-  color:white;
-  padding:90px 20px;
-}
+    .boton:hover { transform: translateY(-2px); }
 
-.hero-inner{
-  max-width:1150px;
-  margin:auto;
-}
+    .boton-secundario {
+      background: transparent;
+      color: white;
+      border: 1px solid #777;
+    }
 
-.badge{
-  display:inline-block;
-  background:#ffc928;
-  color:#15181c;
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:22px;
-}
+    .portada {
+      background:
+        radial-gradient(circle at 90% 10%, #49401a 0, transparent 45%),
+        var(--negro);
+      color: white;
+    }
 
-.hero h1{
-  max-width:800px;
-  font-size:clamp(40px,8vw,78px);
-  line-height:1;
-  letter-spacing:-2px;
-  margin-bottom:22px;
-}
+    .portada-interior {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding: 75px 0;
+    }
 
-.hero h1 span{
-  color:#ffc928;
-}
+    .etiqueta {
+      color: #866000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 800;
+    }
 
-.hero p{
-  max-width:650px;
-  font-size:19px;
-  color:#dedede;
-  margin-bottom:30px;
-}
+    .portada .etiqueta { color: var(--amarillo); }
 
-.btn{
-  display:inline-block;
-  background:#ffc928;
-  color:#15181c;
-  padding:15px 24px;
-  border-radius:8px;
-  font-weight:900;
-  transition:.2s;
-}
+    h1 {
+      font-size: clamp(44px, 6vw, 78px);
+      letter-spacing: -3px;
+      line-height: 1.05;
+      margin: 20px 0;
+    }
 
-.btn:hover{
-  transform:translateY(-2px);
-}
+    h1 span { color: var(--amarillo); }
 
-section{
-  padding:75px 20px;
-}
+    .introduccion {
+      color: #d0d0d0;
+      font-size: 18px;
+      max-width: 540px;
+    }
 
-.container{
-  max-width:1150px;
-  margin:auto;
-}
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
 
-.section-tag{
-  color:#9a7600;
-  font-size:13px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  margin-bottom:8px;
-}
+    .video-caja {
+      overflow: hidden;
+      border-radius: 20px;
+      background: #080808;
+      border: 1px solid #4a4532;
+      box-shadow: 0 25px 60px #0005;
+    }
 
-h2{
-  font-size:clamp(30px,5vw,46px);
-  line-height:1.05;
-  margin-bottom:15px;
-}
+    video {
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: contain;
+      background: #080808;
+    }
 
-.section-intro{
-  max-width:700px;
-  color:#656565;
-  margin-bottom:35px;
-  font-size:17px;
-}
+    .video-pie {
+      padding: 15px 20px;
+      color: var(--amarillo);
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
+    .video-error {
+      padding: 20px;
+      color: white;
+    }
 
-.card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
-  border:1px solid #e7e7e7;
-}
+    .video-error a { text-decoration: underline; }
 
-.card img{
-  height:310px;
-  object-fit:cover;
-  background:#eee;
-}
+    .franja {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 27px 0;
+      border-bottom: 1px solid #ddd;
+    }
 
-.card-body{
-  padding:20px;
-}
+    .franja strong { display: block; }
+    .franja span { color: var(--gris); font-size: 13px; }
 
-.card h3{
-  font-size:20px;
-  margin-bottom:6px;
-}
+    section { padding: 70px 0; }
 
-.card p{
-  color:#666;
-  font-size:14px;
-}
+    h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin: 12px 0 20px;
+    }
 
-.dark{
-  background:#15181c;
-  color:#fff;
-}
+    .gris { color: var(--gris); }
 
-.dark .section-intro{
-  color:#bbb;
-}
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 25px 0 35px;
+    }
 
-.product-list{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:30px;
-}
+    .categorias span {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 9px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-.product-box{
-  background:#22262b;
-  border:1px solid #343940;
-  border-radius:12px;
-  padding:22px;
-}
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
 
-.product-box strong{
-  color:#ffc928;
-  display:block;
-  margin-bottom:8px;
-  font-size:17px;
-}
+    .tarjeta {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid #e1e1db;
+      border-radius: 15px;
+      background: white;
+      transition: transform .2s, box-shadow .2s;
+    }
 
-.product-box p{
-  color:#d1d1d1;
-  font-size:14px;
-}
+    .tarjeta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px #00000010;
+    }
 
-.video-box{
-  max-width:850px;
-  margin:30px auto 0;
-  background:#111;
-  padding:10px;
-  border-radius:18px;
-  box-shadow:0 15px 45px rgba(0,0,0,.18);
-}
+    .foto-enlace {
+      display: block;
+      background: white;
+    }
 
-.video-box video{
-  display:block;
-  width:100%;
-  max-height:650px;
-  border-radius:12px;
-  background:#000;
-}
+    .tarjeta img {
+      display: block;
+      width: 100%;
+      height: 330px;
+      object-fit: contain;
+    }
 
-.video-message{
-  text-align:center;
-  padding:40px 20px;
-  color:#777;
-}
+    .tarjeta figcaption {
+      padding: 18px;
+      border-top: 1px solid #eee;
+    }
 
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
+    .numero {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gris);
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-.about-card{
-  background:#ffc928;
-  border-radius:20px;
-  padding:40px;
-}
+    .consultar {
+      display: block;
+      padding: 12px;
+      background: var(--amarillo);
+      text-align: center;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
 
-.about-card h3{
-  font-size:31px;
-  margin-bottom:14px;
-}
+    .nosotros {
+      background: var(--amarillo);
+    }
 
-.about-card p{
-  font-size:17px;
-}
+    .nosotros-interior {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
 
-.contact{
-  text-align:center;
-  background:#ffc928;
-}
+    .nosotros p { font-size: 17px; }
 
-.contact h2{
-  max-width:750px;
-  margin:0 auto 15px;
-}
+    .pasos {
+      background: #ffffff75;
+      padding: 28px;
+      border-radius: 16px;
+    }
 
-.contact p{
-  max-width:650px;
-  margin:0 auto 28px;
-}
+    .paso {
+      display: flex;
+      gap: 15px;
+      padding: 17px 0;
+      border-bottom: 1px solid #0002;
+    }
 
-.contact .btn{
-  background:#15181c;
-  color:#fff;
-}
+    .paso:last-child { border-bottom: 0; }
 
-footer{
-  background:#0d0f11;
-  color:#aaa;
-  padding:35px 20px;
-  text-align:center;
-}
+    .paso b {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--negro);
+      color: var(--amarillo);
+    }
 
-footer strong{
-  color:#ffc928;
-}
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
 
-.whatsapp-float{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:999;
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:#25D366;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:29px;
-  box-shadow:0 8px 25px rgba(0,0,0,.28);
-}
+    .dato {
+      padding: 17px 0;
+      border-bottom: 1px solid #ddd;
+    }
 
-@media(max-width:850px){
-  nav{
-    display:none;
-  }
+    .dato small {
+      display: block;
+      color: var(--gris);
+      margin-bottom: 5px;
+    }
 
-  .gallery{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .dato strong { font-size: 18px; }
 
-  .product-list{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .mapa {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: underline;
+      font-weight: 700;
+    }
 
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-}
+    form {
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      background: white;
+    }
 
-@media(max-width:560px){
-  .hero{
-    padding:65px 18px;
-  }
+    form h3 { margin: 0; font-size: 27px; }
 
-  section{
-    padding:55px 16px;
-  }
+    label {
+      display: block;
+      margin: 18px 0 6px;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-  .gallery{
-    grid-template-columns:1fr;
-  }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      background: #fafaf8;
+      border-radius: 8px;
+      padding: 13px;
+      color: var(--negro);
+    }
 
-  .product-list{
-    grid-template-columns:1fr;
-  }
+    textarea { resize: vertical; }
+    form .boton { width: 100%; margin-top: 20px; }
+    .pequeno { font-size: 12px; }
 
-  .card img{
-    height:auto;
-    max-height:500px;
-    object-fit:cover;
-  }
-}
-</style>
+    footer {
+      padding: 32px 0 95px;
+      background: var(--negro);
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .pie {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .pie strong { color: var(--amarillo); }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 40;
+      background: #176c3a;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 35px;
+      box-shadow: 0 5px 25px #0004;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .portada-interior,
+      .nosotros-interior,
+      .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .portada-interior { padding: 45px 0; }
+      .menu > a:not(.boton) { display: none; }
+      .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      video { height: 380px; }
+      section { padding: 50px 0; }
+    }
+
+    @media (max-width: 500px) {
+      .marca { font-size: 11px; gap: 8px; }
+      .logo { width: 43px; height: 43px; }
+      .menu .boton { padding: 11px 13px; font-size: 12px; }
+      h1 { letter-spacing: -2px; }
+      .galeria { grid-template-columns: 1fr; }
+      .tarjeta img { height: 360px; }
+      .franja { gap: 13px; }
+      .franja strong { font-size: 12px; }
+      .franja span { font-size: 11px; }
+      form { padding: 22px; }
+      video { height: 350px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="aviso">
+    BOGOTÁ · BARRIO 7 DE AGOSTO · CINTAS Y EMBALAJES JR
+  </div>
 
-<header>
-  <div class="nav">
-    <div class="logo">
-      <span>JR</span> CINTAS Y EMBALAJES
-    </div>
+  <header>
+    <nav class="contenedor" aria-label="Navegación principal">
+      <a class="marca" href="#inicio">
+        <span class="logo">JR</span>
+        <span>CINTAS Y<br>EMBALAJES</span>
+      </a>
 
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#galeria">Galería</a>
-      <a href="#video">Video</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
+      <div class="menu">
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a class="boton"
+           href="https://wa.me/573128761347"
+           target="_blank"
+           rel="noopener">Cotizar ↗</a>
+      </div>
     </nav>
-  </div>
-</header>
+  </header>
 
+  <main>
+    <div class="portada" id="inicio">
+      <div class="contenedor portada-interior">
+        <div>
+          <div class="etiqueta">Soluciones de empaque y embalaje</div>
 
-<section class="hero">
-  <div class="hero-inner">
+          <h1>Empaca bien.<br><span>Protege más.</span></h1>
 
-    <div class="badge">📍 Sector 7 de Agosto · Bogotá</div>
+          <p class="introduccion">
+            Tu mejor aliado en empaque y soluciones de embalaje.
+            Encuentra cintas, stretch, vinipel, bolsas y materiales
+            para proteger tus productos.
+          </p>
 
-    <h1>
-      Tu mejor aliado en
-      <span>empaque y embalaje</span>
-    </h1>
-
-    <p>
-      Soluciones para empacar, proteger y señalizar.
-      Película stretch, vinipel, cintas, bolsas,
-      señalización y accesorios.
-    </p>
-
-    <a class="btn"
-       href="https://wa.me/573128761347?text=Hola%20JR%20Cintas%20y%20Embalajes,%20quiero%20cotizar%20un%20producto."
-       target="_blank">
-       Cotizar por WhatsApp
-    </a>
-
-  </div>
-</section>
-
-
-<section id="galeria">
-  <div class="container">
-
-    <div class="section-tag">Nuestros productos</div>
-    <h2>Productos reales de nuestro punto de venta</h2>
-
-    <p class="section-intro">
-      Conoce algunas de las referencias disponibles.
-      Consulta medidas, unidades, existencias y precios al realizar tu pedido.
-    </p>
-
-
-    <div class="gallery">
-
-      <article class="card">
-        <img
-          src="08b01d9f-cda4-4064-a885-7a17687485a6.jpeg"
-          alt="Película stretch transparente 30 x 300"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Stretch transparente</h3>
-          <p>Referencia 30 × 300.</p>
+          <div class="acciones">
+            <a class="boton" href="#productos">Ver nuestros productos ↓</a>
+            <a class="boton boton-secundario"
+               href="https://wa.me/573128761347?text=Hola%2C%20quiero%20cotizar%20productos%20de%20embalaje."
+               target="_blank"
+               rel="noopener">Hablar por WhatsApp ↗</a>
+          </div>
         </div>
-      </article>
 
+        <div class="video-caja">
+          <video id="videoJR"
+                 controls
+                 playsinline
+                 preload="metadata"
+                 aria-label="Video de Cintas y Embalajes JR">
+            <source
+              src="./F2658B05-2910-4734-8690-3EC98CB04408.mp4"
+              type="video/mp4">
+            Tu navegador no puede reproducir este video.
+          </video>
 
-      <article class="card">
-        <img
-          src="5f660571-1528-431e-a86c-b565334a96d0.jpeg"
-          alt="Película stretch transparente 50 x 300"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Stretch 50 × 300</h3>
-          <p>Película transparente para protección y embalaje.</p>
+          <div id="videoError" class="video-error" hidden>
+            No se pudo reproducir el video aquí.
+            <a href="./F2658B05-2910-4734-8690-3EC98CB04408.mp4">
+              Abrir el video directamente
+            </a>
+          </div>
+
+          <div class="video-pie">
+            DALE PLAY Y CONOCE CINTAS Y EMBALAJES JR
+          </div>
         </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="5febd8f3-a2ba-44c4-bd34-ec5e23c787a3.jpeg"
-          alt="Película stretch 20 x 300"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Stretch 20 × 300</h3>
-          <p>Presentación transparente.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="7c62cf66-0851-4760-bdc4-edab4edb14a2.jpeg"
-          alt="Película stretch 15 x 300"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Stretch 15 × 300</h3>
-          <p>Rollo transparente.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="6c7c0da2-d10f-45c9-9ba0-267fc86dc20c.jpeg"
-          alt="Película stretch negra 50 x 400"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Stretch negro</h3>
-          <p>Referencia 50 × 400.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="86e3528f-4ecf-44f7-9a7d-d5005add23fa.jpeg"
-          alt="Cinta doble faz roja"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Doble faz roja</h3>
-          <p>Cinta adhesiva para fijación.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="3ecc2405-76e0-44a8-8285-4a62042744aa.jpeg"
-          alt="Cinta tipo duct tape"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Duct tape</h3>
-          <p>Cinta resistente con acabado plateado.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="e4a4ac89-574b-43f3-a20d-d85eae931cbb.jpeg"
-          alt="Cintas antideslizantes"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Cintas antideslizantes</h3>
-          <p>Opciones para señalización y seguridad.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="6a1925dd-b55d-4840-bedc-dfc9a22c37cd.jpeg"
-          alt="Cintas especiales y accesorios"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Cintas especiales</h3>
-          <p>Doble faz, señalización y diferentes soluciones adhesivas.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="5b79fa3f-27c4-4672-86fb-82145e8cb616.jpeg"
-          alt="Inventario de cintas y película stretch"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Variedad de referencias</h3>
-          <p>Stretch, cintas de enmascarar, señalización y más.</p>
-        </div>
-      </article>
-
-
-      <article class="card">
-        <img
-          src="5806292d-e098-4be8-becf-8800796a5df4.jpeg"
-          alt="Bolsas negras"
-          loading="lazy">
-        <div class="card-body">
-          <h3>Bolsas negras</h3>
-          <p>Diferentes tamaños y capacidades disponibles.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="dark" id="productos">
-  <div class="container">
-
-    <div class="section-tag">Catálogo</div>
-    <h2>Soluciones para cada necesidad</h2>
-
-    <p class="section-intro">
-      Productos para comercio, industria, alimentos,
-      almacenamiento, mudanzas y embalaje.
-    </p>
-
-    <div class="product-list">
-
-      <div class="product-box">
-        <strong>Película stretch</strong>
-        <p>
-          Presentaciones transparentes y negras
-          en diferentes anchos y metrajes.
-        </p>
       </div>
-
-      <div class="product-box">
-        <strong>Vinipel</strong>
-        <p>
-          Opciones para alimentos y diferentes
-          necesidades de empaque.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Cintas de empaque</strong>
-        <p>
-          Cintas transparentes en diferentes
-          anchos y presentaciones.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Doble faz</strong>
-        <p>
-          Cinta doble faz roja y opciones
-          con soporte de espuma.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Cintas especializadas</strong>
-        <p>
-          Enmascarar, duct tape y otras
-          soluciones adhesivas.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Señalización</strong>
-        <p>
-          Cintas delimitadoras y
-          opciones antideslizantes.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Bolsas negras</strong>
-        <p>
-          Diferentes tamaños y capacidades
-          según disponibilidad.
-        </p>
-      </div>
-
-      <div class="product-box">
-        <strong>Accesorios</strong>
-        <p>
-          Cortadores y complementos para
-          empaque y embalaje.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="video">
-  <div class="container">
-
-    <div class="section-tag">JR Cintas y Embalajes</div>
-    <h2>Conoce nuestros productos</h2>
-
-    <p class="section-intro">
-      Mira nuestro video y conoce parte de las soluciones
-      que ofrecemos en Bogotá.
-    </p>
-
-    <div class="video-box">
-      <video controls playsinline preload="metadata">
-  <source src="F2658B05-2910-4734-8690-3EC98CB04408.mp4" type="video/mp4">
-  Tu navegador no puede reproducir este video.
-</video>
-
-      
     </div>
 
-  </div>
-</section>
-
-
-<section id="nosotros">
-  <div class="container">
-
-    <div class="about-grid">
-
+    <div class="contenedor franja">
       <div>
-        <div class="section-tag">Sobre nosotros</div>
-        <h2>Cintas y Embalajes JR</h2>
-
-        <p class="section-intro">
-          Ofrecemos soluciones de empaque, protección
-          y señalización para clientes en Bogotá.
-          Nuestro objetivo es ayudarte a encontrar
-          el producto y la medida que necesitas.
-        </p>
-
-        <a class="btn"
-           href="https://wa.me/573128761347?text=Hola,%20quiero%20información%20sobre%20sus%20productos."
-           target="_blank">
-           Hablar con nosotros
-        </a>
+        <strong>01 / EMPACA</strong>
+        <span>Prepara tus productos.</span>
       </div>
-
-
-      <div class="about-card">
-        <h3>¿Necesitas una referencia específica?</h3>
-
-        <p>
-          Escríbenos indicando el producto y la medida.
-          Te ayudamos a confirmar disponibilidad,
-          presentación y precio.
-        </p>
+      <div>
+        <strong>02 / PROTEGE</strong>
+        <span>Encuentra tu material.</span>
       </div>
-
+      <div>
+        <strong>03 / SEÑALIZA</strong>
+        <span>Organiza tus espacios.</span>
+      </div>
     </div>
-  </div>
-</section>
 
+    <section id="productos" class="contenedor">
+      <div class="etiqueta">Nuestro catálogo</div>
+      <h2>Productos para<br>cada necesidad.</h2>
 
-<section class="contact" id="contacto">
-  <div class="container">
+      <p class="gris">
+        Explora nuestras fotos. Toca una imagen para ampliarla
+        o consulta por WhatsApp el producto que te interesa.
+      </p>
 
-    <h2>Hablemos de tu pedido</h2>
+      <div class="categorias" aria-label="Tipos de productos">
+        <span>Cintas de empaque</span>
+        <span>Stretch industrial</span>
+        <span>Vinipel</span>
+        <span>Doble faz</span>
+        <span>Bolsas</span>
+        <span>Señalización</span>
+        <span>Cintas de enmascarar</span>
+      </div>
 
-    <p>
-      Cuéntanos qué producto y medida necesitas.
-      Estamos en el sector 7 de Agosto, Bogotá, Colombia.
-    </p>
+      <div id="galeria" class="galeria"></div>
 
-    <a class="btn"
-       href="https://wa.me/573128761347?text=Hola%20JR%20Cintas%20y%20Embalajes,%20quiero%20hacer%20un%20pedido."
-       target="_blank">
-       WhatsApp 312 876 1347
-    </a>
+      <noscript>
+        <p>
+          Activa JavaScript para ver la galería completa.
+          También puedes consultar nuestros productos
+          <a href="https://wa.me/573128761347">por WhatsApp</a>.
+        </p>
+      </noscript>
 
-  </div>
-</section>
+      <p class="gris pequeno">
+        Consulta medidas, referencias, disponibilidad y precios
+        antes de realizar tu pedido.
+      </p>
+    </section>
 
+    <section id="nosotros" class="nosotros">
+      <div class="contenedor nosotros-interior">
+        <div>
+          <div class="etiqueta">Cintas y Embalajes JR</div>
+          <h2>Detrás de cada pedido,<br>estamos para ayudarte.</h2>
+          <p>
+            Estamos en el barrio 7 de Agosto, en Bogotá.
+            Cuéntanos qué necesitas empacar, proteger o señalizar
+            y te ayudamos a consultar las opciones disponibles.
+          </p>
+        </div>
 
-<footer>
-  <p>
-    <strong>JR Cintas y Embalajes</strong><br>
-    Sector 7 de Agosto · Bogotá, Colombia<br>
-    WhatsApp: 312 876 1347
-  </p>
-</footer>
+        <div class="pasos">
+          <div class="paso">
+            <b>1</b>
+            <div>
+              <strong>Elige tu producto</strong><br>
+              Revisa las fotos del catálogo.
+            </div>
+          </div>
 
+          <div class="paso">
+            <b>2</b>
+            <div>
+              <strong>Cuéntanos qué necesitas</strong><br>
+              Indica medidas, cantidades y uso.
+            </div>
+          </div>
 
-<a
-  class="whatsapp-float"
-  href="https://wa.me/573128761347?text=Hola%20JR%20Cintas%20y%20Embalajes"
-  target="_blank"
-  aria-label="WhatsApp">
-  ☎
-</a>
+          <div class="paso">
+            <b>3</b>
+            <div>
+              <strong>Consulta tu cotización</strong><br>
+              Confirma los detalles con atención comercial.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="contacto" class="contenedor">
+      <div class="contacto-grid">
+        <div>
+          <div class="etiqueta">Contacto y pedidos</div>
+          <h2>Hablemos de<br>tu próximo pedido.</h2>
 
+          <div class="dato">
+            <small>WhatsApp y llamadas</small>
+            <strong>
+              <a href="tel:+573128761347">312 876 1347</a>
+            </strong>
+          </div>
 
+          <div class="dato">
+            <small>Dirección</small>
+            <strong>Carrera 25 # 67-11</strong><br>
+            Barrio 7 de Agosto · Bogotá, Colombia<br>
+            <a class="mapa"
+               href="https://www.google.com/maps/search/?api=1&amp;query=Carrera%2025%2067-11%20Bogota%20Colombia"
+               target="_blank"
+               rel="noopener">Ver ubicación ↗</a>
+          </div>
 
+          <div class="dato">
+            <small>Atención comercial</small>
+            <strong>Sonia Stella Rodríguez</strong>
+          </div>
 
+          <div class="dato">
+            <small>Gerente</small>
+            <strong>Jhon Jairo Navarrete</strong>
+          </div>
+        </div>
+
+        <form id="formulario">
+          <h3>Solicita una cotización</h3>
+          <p class="gris">
+            Completa los datos y continúa en WhatsApp.
+          </p>
+
+          <label for="nombre">Tu nombre</label>
+          <input id="nombre"
+                 name="nombre"
+                 autocomplete="name"
+                 placeholder="Escribe tu nombre"
+                 maxlength="80"
+                 required>
+
+          <label for="producto">Producto que necesitas</label>
+          <input id="producto"
+                 name="producto"
+                 placeholder="Ejemplo: cinta de empaque"
+                 maxlength="150"
+                 required>
+
+          <label for="detalle">Cantidad, medidas o detalles</label>
+          <textarea id="detalle"
+                    name="detalle"
+                    rows="5"
+                    maxlength="1200"
+                    placeholder="Cuéntanos qué necesitas"
+                    required></textarea>
+
+          <button class="boton" type="submit">
+            Continuar en WhatsApp ↗
+          </button>
+
+          <p class="gris pequeno">
+            Podrás revisar el mensaje antes de enviarlo.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor pie">
+      <strong>CINTAS Y EMBALAJES JR</strong>
+      <span>Empaca. Protege. Señaliza.</span>
+      <span>© <span id="year">2026</span> · Bogotá, Colombia</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp"
+     href="https://wa.me/573128761347?text=Hola%2C%20quiero%20información%20sobre%20sus%20productos."
+     target="_blank"
+     rel="noopener"
+     aria-label="Contactar por WhatsApp">
+    WhatsApp ↗
+  </a>
+
+  <script>
+    const telefono = "573128761347";
+
+    const fotos = [
+      "08b01d9f-cda4-4064-a885-7a17687485a6.jpeg",
+      "2b31b873-b433-4db0-ad09-469b77b0bac6.jpeg",
+      "327d05d2-17b4-4701-8e21-f0f18cf4be01.jpeg",
+      "33a4ac73-2d93-4de1-a558-06ab0c8b2c62.jpeg",
+      "3ecc2405-76e0-44a8-8285-4a62042744aa.jpeg",
+      "5806292d-e098-4be8-becf-8800796a5df4.jpeg",
+      "5b79fa3f-27c4-4672-86fb-82145e8cb616.jpeg",
+      "5f660571-1528-431e-a86c-b565334a96d0.jpeg",
+      "5febd8f3-a2ba-44c4-bd34-ec5e23c787a3.jpeg",
+      "6a1925dd-b55d-4840-bedc-dfc9a22c37cd.jpeg",
+      "6c7c0da2-d10f-45c9-9ba0-267fc86dc20c.jpeg",
+      "7c62cf66-0851-4760-bdc4-edab4edb14a2.jpeg",
+      "81d468eb-78d8-4519-b6a8-4f1872050ea4.jpeg",
+      "8268e537-dd99-4a75-bdec-533112fb837a.jpeg",
+      "86e3528f-4ecf-44f7-9a7d-d5005add23fa.jpeg",
+      "89ed66dd-ce31-49fa-b8c6-07a2a9d62441.jpeg",
+      "8ee77407-8f93-4a0f-ac1f-0d4dfef863ea.jpeg",
+      "8fd52a66-5161-4e1c-89a9-a2937af52846.jpeg",
+      "a17a41bc-831b-4c5e-b34a-1b004d197b80.jpeg",
+      "ae1a4afb-292e-4354-855d-0495b83fadd7.jpeg",
+      "b7c17b41-b765-470b-a923-1ab2775f912b.jpeg",
+      "bd2b9718-8429-465c-8f34-38c7754ae688.jpeg",
+      "c755bfca-ef10-49e9-be8a-b206256312e3.jpeg",
+      "cfdc825f-7f0f-4643-9e8c-46b32bfe6fb0.jpeg",
+      "d81df753-c869-4f1c-abd5-f5ca1b6cf4ae.jpeg",
+      "dad75b33-bde8-48ce-987b-904a2550b68b.jpeg",
+      "e09362c0-09aa-428b-b210-06ebbc1d55aa.jpeg",
+      "e4a4ac89-574b-43f3-a20d-d85eae931cbb.jpeg",
+      "ecedf4c6-3a4b-48ce-9d4f-f03040a7d3da.jpeg"
+    ];
+
+    const galeria = document.getElementById("galeria");
+
+    fotos.forEach((archivo, indice) => {
+      const numero = String(indice + 1).padStart(2, "0");
+      const ruta = "./" + archivo;
+
+      const enlaceFoto =
+        "https://jrcintasyenbalajes.github.io/" +
+        "jr-cintas-y-embalajes/" +
+        archivo;
+
+      const mensaje =
+        "Hola, quiero información y precio del producto " +
+        "que aparece en esta foto de su catálogo:\n" +
+        enlaceFoto +
+        "\nCantidad que necesito: ";
+
+      const tarjeta = document.createElement("figure");
+      tarjeta.className = "tarjeta";
+
+      const ampliar = document.createElement("a");
+      ampliar.className = "foto-enlace";
+      ampliar.href = ruta;
+      ampliar.target = "_blank";
+      ampliar.rel = "noopener";
+      ampliar.setAttribute("aria-label", "Ampliar foto " + numero);
+
+      const imagen = document.createElement("img");
+      imagen.src = ruta;
+      imagen.alt =
+        "Foto " + numero + " del catálogo de Cintas y Embalajes JR";
+      imagen.loading = "lazy";
+      imagen.decoding = "async";
+
+      ampliar.appendChild(imagen);
+
+      const pie = document.createElement("figcaption");
+
+      const referencia = document.createElement("span");
+      referencia.className = "numero";
+      referencia.textContent = "FOTO " + numero + " · CATÁLOGO JR";
+
+      const consultar = document.createElement("a");
+      consultar.className = "consultar";
+      consultar.href =
+        "https://wa.me/" + telefono +
+        "?text=" + encodeURIComponent(mensaje);
+      consultar.target = "_blank";
+      consultar.rel = "noopener";
+      consultar.textContent = "Consultar este producto ↗";
+
+      pie.append(referencia, consultar);
+      tarjeta.append(ampliar, pie);
+      galeria.appendChild(tarjeta);
+    });
+
+    document.getElementById("formulario")
+      .addEventListener("submit", function(evento) {
+        evento.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const producto = document.getElementById("producto").value.trim();
+        const detalle = document.getElementById("detalle").value.trim();
+
+        if (!nombre || !producto || !detalle) {
+          return;
+        }
+
+        const mensaje =
+          "Hola, soy " + nombre + ".\n" +
+          "Quiero cotizar: " + producto + ".\n" +
+          "Detalles: " + detalle;
+
+        window.location.href =
+          "https://wa.me/" + telefono +
+          "?text=" + encodeURIComponent(mensaje);
+      });
+
+    const video = document.getElementById("videoJR");
+    const avisoVideo = document.getElementById("videoError");
+
+    function mostrarErrorVideo() {
+      avisoVideo.hidden = false;
+    }
+
+    video.addEventListener("error", mostrarErrorVideo);
+    video.querySelector("source")
+      .addEventListener("error", mostrarErrorVideo);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
